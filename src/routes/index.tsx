@@ -116,8 +116,11 @@ function Navbar() {
             </a>
           ))}
         </nav>
-        <div className="hidden md:block">
-          <a href="#cta" className="inline-flex h-10 items-center rounded-lg bg-navy-900 px-4 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-navy-700">
+        <div className="hidden md:flex items-center gap-2">
+          <a href="/auth" className="inline-flex h-10 items-center rounded-lg border border-navy-900 px-4 text-sm font-medium text-navy-900 hover:bg-off-white">
+            Masuk
+          </a>
+          <a href="/auth" className="inline-flex h-10 items-center rounded-lg bg-navy-900 px-4 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-navy-700">
             Coba Gratis
           </a>
         </div>
