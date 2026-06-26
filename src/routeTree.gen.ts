@@ -9,38 +9,323 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
+import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
+import { Route as AuthenticatedAppSupplierRouteImport } from './routes/_authenticated/app.supplier'
+import { Route as AuthenticatedAppStokRouteImport } from './routes/_authenticated/app.stok'
+import { Route as AuthenticatedAppProdukRouteImport } from './routes/_authenticated/app.produk'
+import { Route as AuthenticatedAppPiutangRouteImport } from './routes/_authenticated/app.piutang'
+import { Route as AuthenticatedAppPenjualanRouteImport } from './routes/_authenticated/app.penjualan'
+import { Route as AuthenticatedAppPengaturanRouteImport } from './routes/_authenticated/app.pengaturan'
+import { Route as AuthenticatedAppPembelianRouteImport } from './routes/_authenticated/app.pembelian'
+import { Route as AuthenticatedAppPelangganRouteImport } from './routes/_authenticated/app.pelanggan'
+import { Route as AuthenticatedAppOpnameRouteImport } from './routes/_authenticated/app.opname'
+import { Route as AuthenticatedAppLaporanRouteImport } from './routes/_authenticated/app.laporan'
+import { Route as AuthenticatedAppKategoriRouteImport } from './routes/_authenticated/app.kategori'
+import { Route as AuthenticatedAppKasRouteImport } from './routes/_authenticated/app.kas'
+import { Route as AuthenticatedAppHutangRouteImport } from './routes/_authenticated/app.hutang'
+import { Route as AuthenticatedAppDashboardRouteImport } from './routes/_authenticated/app.dashboard'
+import { Route as AuthenticatedAppBerandaRouteImport } from './routes/_authenticated/app.beranda'
+import { Route as AuthenticatedAppAuditRouteImport } from './routes/_authenticated/app.audit'
+import { Route as AuthenticatedAppAkunRouteImport } from './routes/_authenticated/app.akun'
+import { Route as AuthenticatedAppPenjualanBaruRouteImport } from './routes/_authenticated/app.penjualan.baru'
 
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAppRoute = AuthenticatedAppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAppIndexRoute = AuthenticatedAppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppSupplierRoute =
+  AuthenticatedAppSupplierRouteImport.update({
+    id: '/supplier',
+    path: '/supplier',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppStokRoute = AuthenticatedAppStokRouteImport.update({
+  id: '/stok',
+  path: '/stok',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppProdukRoute = AuthenticatedAppProdukRouteImport.update({
+  id: '/produk',
+  path: '/produk',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppPiutangRoute = AuthenticatedAppPiutangRouteImport.update({
+  id: '/piutang',
+  path: '/piutang',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppPenjualanRoute =
+  AuthenticatedAppPenjualanRouteImport.update({
+    id: '/penjualan',
+    path: '/penjualan',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppPengaturanRoute =
+  AuthenticatedAppPengaturanRouteImport.update({
+    id: '/pengaturan',
+    path: '/pengaturan',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppPembelianRoute =
+  AuthenticatedAppPembelianRouteImport.update({
+    id: '/pembelian',
+    path: '/pembelian',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppPelangganRoute =
+  AuthenticatedAppPelangganRouteImport.update({
+    id: '/pelanggan',
+    path: '/pelanggan',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppOpnameRoute = AuthenticatedAppOpnameRouteImport.update({
+  id: '/opname',
+  path: '/opname',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppLaporanRoute = AuthenticatedAppLaporanRouteImport.update({
+  id: '/laporan',
+  path: '/laporan',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppKategoriRoute =
+  AuthenticatedAppKategoriRouteImport.update({
+    id: '/kategori',
+    path: '/kategori',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppKasRoute = AuthenticatedAppKasRouteImport.update({
+  id: '/kas',
+  path: '/kas',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppHutangRoute = AuthenticatedAppHutangRouteImport.update({
+  id: '/hutang',
+  path: '/hutang',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppDashboardRoute =
+  AuthenticatedAppDashboardRouteImport.update({
+    id: '/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppBerandaRoute = AuthenticatedAppBerandaRouteImport.update({
+  id: '/beranda',
+  path: '/beranda',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppAuditRoute = AuthenticatedAppAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppAkunRoute = AuthenticatedAppAkunRouteImport.update({
+  id: '/akun',
+  path: '/akun',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
+const AuthenticatedAppPenjualanBaruRoute =
+  AuthenticatedAppPenjualanBaruRouteImport.update({
+    id: '/baru',
+    path: '/baru',
+    getParentRoute: () => AuthenticatedAppPenjualanRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/app': typeof AuthenticatedAppRouteWithChildren
+  '/app/akun': typeof AuthenticatedAppAkunRoute
+  '/app/audit': typeof AuthenticatedAppAuditRoute
+  '/app/beranda': typeof AuthenticatedAppBerandaRoute
+  '/app/dashboard': typeof AuthenticatedAppDashboardRoute
+  '/app/hutang': typeof AuthenticatedAppHutangRoute
+  '/app/kas': typeof AuthenticatedAppKasRoute
+  '/app/kategori': typeof AuthenticatedAppKategoriRoute
+  '/app/laporan': typeof AuthenticatedAppLaporanRoute
+  '/app/opname': typeof AuthenticatedAppOpnameRoute
+  '/app/pelanggan': typeof AuthenticatedAppPelangganRoute
+  '/app/pembelian': typeof AuthenticatedAppPembelianRoute
+  '/app/pengaturan': typeof AuthenticatedAppPengaturanRoute
+  '/app/penjualan': typeof AuthenticatedAppPenjualanRouteWithChildren
+  '/app/piutang': typeof AuthenticatedAppPiutangRoute
+  '/app/produk': typeof AuthenticatedAppProdukRoute
+  '/app/stok': typeof AuthenticatedAppStokRoute
+  '/app/supplier': typeof AuthenticatedAppSupplierRoute
+  '/app/': typeof AuthenticatedAppIndexRoute
+  '/app/penjualan/baru': typeof AuthenticatedAppPenjualanBaruRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/app/akun': typeof AuthenticatedAppAkunRoute
+  '/app/audit': typeof AuthenticatedAppAuditRoute
+  '/app/beranda': typeof AuthenticatedAppBerandaRoute
+  '/app/dashboard': typeof AuthenticatedAppDashboardRoute
+  '/app/hutang': typeof AuthenticatedAppHutangRoute
+  '/app/kas': typeof AuthenticatedAppKasRoute
+  '/app/kategori': typeof AuthenticatedAppKategoriRoute
+  '/app/laporan': typeof AuthenticatedAppLaporanRoute
+  '/app/opname': typeof AuthenticatedAppOpnameRoute
+  '/app/pelanggan': typeof AuthenticatedAppPelangganRoute
+  '/app/pembelian': typeof AuthenticatedAppPembelianRoute
+  '/app/pengaturan': typeof AuthenticatedAppPengaturanRoute
+  '/app/penjualan': typeof AuthenticatedAppPenjualanRouteWithChildren
+  '/app/piutang': typeof AuthenticatedAppPiutangRoute
+  '/app/produk': typeof AuthenticatedAppProdukRoute
+  '/app/stok': typeof AuthenticatedAppStokRoute
+  '/app/supplier': typeof AuthenticatedAppSupplierRoute
+  '/app': typeof AuthenticatedAppIndexRoute
+  '/app/penjualan/baru': typeof AuthenticatedAppPenjualanBaruRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
+  '/_authenticated/app/akun': typeof AuthenticatedAppAkunRoute
+  '/_authenticated/app/audit': typeof AuthenticatedAppAuditRoute
+  '/_authenticated/app/beranda': typeof AuthenticatedAppBerandaRoute
+  '/_authenticated/app/dashboard': typeof AuthenticatedAppDashboardRoute
+  '/_authenticated/app/hutang': typeof AuthenticatedAppHutangRoute
+  '/_authenticated/app/kas': typeof AuthenticatedAppKasRoute
+  '/_authenticated/app/kategori': typeof AuthenticatedAppKategoriRoute
+  '/_authenticated/app/laporan': typeof AuthenticatedAppLaporanRoute
+  '/_authenticated/app/opname': typeof AuthenticatedAppOpnameRoute
+  '/_authenticated/app/pelanggan': typeof AuthenticatedAppPelangganRoute
+  '/_authenticated/app/pembelian': typeof AuthenticatedAppPembelianRoute
+  '/_authenticated/app/pengaturan': typeof AuthenticatedAppPengaturanRoute
+  '/_authenticated/app/penjualan': typeof AuthenticatedAppPenjualanRouteWithChildren
+  '/_authenticated/app/piutang': typeof AuthenticatedAppPiutangRoute
+  '/_authenticated/app/produk': typeof AuthenticatedAppProdukRoute
+  '/_authenticated/app/stok': typeof AuthenticatedAppStokRoute
+  '/_authenticated/app/supplier': typeof AuthenticatedAppSupplierRoute
+  '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
+  '/_authenticated/app/penjualan/baru': typeof AuthenticatedAppPenjualanBaruRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/app'
+    | '/app/akun'
+    | '/app/audit'
+    | '/app/beranda'
+    | '/app/dashboard'
+    | '/app/hutang'
+    | '/app/kas'
+    | '/app/kategori'
+    | '/app/laporan'
+    | '/app/opname'
+    | '/app/pelanggan'
+    | '/app/pembelian'
+    | '/app/pengaturan'
+    | '/app/penjualan'
+    | '/app/piutang'
+    | '/app/produk'
+    | '/app/stok'
+    | '/app/supplier'
+    | '/app/'
+    | '/app/penjualan/baru'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/app/akun'
+    | '/app/audit'
+    | '/app/beranda'
+    | '/app/dashboard'
+    | '/app/hutang'
+    | '/app/kas'
+    | '/app/kategori'
+    | '/app/laporan'
+    | '/app/opname'
+    | '/app/pelanggan'
+    | '/app/pembelian'
+    | '/app/pengaturan'
+    | '/app/penjualan'
+    | '/app/piutang'
+    | '/app/produk'
+    | '/app/stok'
+    | '/app/supplier'
+    | '/app'
+    | '/app/penjualan/baru'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/_authenticated/app'
+    | '/_authenticated/app/akun'
+    | '/_authenticated/app/audit'
+    | '/_authenticated/app/beranda'
+    | '/_authenticated/app/dashboard'
+    | '/_authenticated/app/hutang'
+    | '/_authenticated/app/kas'
+    | '/_authenticated/app/kategori'
+    | '/_authenticated/app/laporan'
+    | '/_authenticated/app/opname'
+    | '/_authenticated/app/pelanggan'
+    | '/_authenticated/app/pembelian'
+    | '/_authenticated/app/pengaturan'
+    | '/_authenticated/app/penjualan'
+    | '/_authenticated/app/piutang'
+    | '/_authenticated/app/produk'
+    | '/_authenticated/app/stok'
+    | '/_authenticated/app/supplier'
+    | '/_authenticated/app/'
+    | '/_authenticated/app/penjualan/baru'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +333,223 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/app': {
+      id: '/_authenticated/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AuthenticatedAppRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/app/': {
+      id: '/_authenticated/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AuthenticatedAppIndexRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/supplier': {
+      id: '/_authenticated/app/supplier'
+      path: '/supplier'
+      fullPath: '/app/supplier'
+      preLoaderRoute: typeof AuthenticatedAppSupplierRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/stok': {
+      id: '/_authenticated/app/stok'
+      path: '/stok'
+      fullPath: '/app/stok'
+      preLoaderRoute: typeof AuthenticatedAppStokRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/produk': {
+      id: '/_authenticated/app/produk'
+      path: '/produk'
+      fullPath: '/app/produk'
+      preLoaderRoute: typeof AuthenticatedAppProdukRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/piutang': {
+      id: '/_authenticated/app/piutang'
+      path: '/piutang'
+      fullPath: '/app/piutang'
+      preLoaderRoute: typeof AuthenticatedAppPiutangRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/penjualan': {
+      id: '/_authenticated/app/penjualan'
+      path: '/penjualan'
+      fullPath: '/app/penjualan'
+      preLoaderRoute: typeof AuthenticatedAppPenjualanRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/pengaturan': {
+      id: '/_authenticated/app/pengaturan'
+      path: '/pengaturan'
+      fullPath: '/app/pengaturan'
+      preLoaderRoute: typeof AuthenticatedAppPengaturanRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/pembelian': {
+      id: '/_authenticated/app/pembelian'
+      path: '/pembelian'
+      fullPath: '/app/pembelian'
+      preLoaderRoute: typeof AuthenticatedAppPembelianRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/pelanggan': {
+      id: '/_authenticated/app/pelanggan'
+      path: '/pelanggan'
+      fullPath: '/app/pelanggan'
+      preLoaderRoute: typeof AuthenticatedAppPelangganRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/opname': {
+      id: '/_authenticated/app/opname'
+      path: '/opname'
+      fullPath: '/app/opname'
+      preLoaderRoute: typeof AuthenticatedAppOpnameRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/laporan': {
+      id: '/_authenticated/app/laporan'
+      path: '/laporan'
+      fullPath: '/app/laporan'
+      preLoaderRoute: typeof AuthenticatedAppLaporanRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/kategori': {
+      id: '/_authenticated/app/kategori'
+      path: '/kategori'
+      fullPath: '/app/kategori'
+      preLoaderRoute: typeof AuthenticatedAppKategoriRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/kas': {
+      id: '/_authenticated/app/kas'
+      path: '/kas'
+      fullPath: '/app/kas'
+      preLoaderRoute: typeof AuthenticatedAppKasRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/hutang': {
+      id: '/_authenticated/app/hutang'
+      path: '/hutang'
+      fullPath: '/app/hutang'
+      preLoaderRoute: typeof AuthenticatedAppHutangRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/dashboard': {
+      id: '/_authenticated/app/dashboard'
+      path: '/dashboard'
+      fullPath: '/app/dashboard'
+      preLoaderRoute: typeof AuthenticatedAppDashboardRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/beranda': {
+      id: '/_authenticated/app/beranda'
+      path: '/beranda'
+      fullPath: '/app/beranda'
+      preLoaderRoute: typeof AuthenticatedAppBerandaRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/audit': {
+      id: '/_authenticated/app/audit'
+      path: '/audit'
+      fullPath: '/app/audit'
+      preLoaderRoute: typeof AuthenticatedAppAuditRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/akun': {
+      id: '/_authenticated/app/akun'
+      path: '/akun'
+      fullPath: '/app/akun'
+      preLoaderRoute: typeof AuthenticatedAppAkunRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/penjualan/baru': {
+      id: '/_authenticated/app/penjualan/baru'
+      path: '/baru'
+      fullPath: '/app/penjualan/baru'
+      preLoaderRoute: typeof AuthenticatedAppPenjualanBaruRouteImport
+      parentRoute: typeof AuthenticatedAppPenjualanRoute
+    }
   }
 }
 
+interface AuthenticatedAppPenjualanRouteChildren {
+  AuthenticatedAppPenjualanBaruRoute: typeof AuthenticatedAppPenjualanBaruRoute
+}
+
+const AuthenticatedAppPenjualanRouteChildren: AuthenticatedAppPenjualanRouteChildren =
+  {
+    AuthenticatedAppPenjualanBaruRoute: AuthenticatedAppPenjualanBaruRoute,
+  }
+
+const AuthenticatedAppPenjualanRouteWithChildren =
+  AuthenticatedAppPenjualanRoute._addFileChildren(
+    AuthenticatedAppPenjualanRouteChildren,
+  )
+
+interface AuthenticatedAppRouteChildren {
+  AuthenticatedAppAkunRoute: typeof AuthenticatedAppAkunRoute
+  AuthenticatedAppAuditRoute: typeof AuthenticatedAppAuditRoute
+  AuthenticatedAppBerandaRoute: typeof AuthenticatedAppBerandaRoute
+  AuthenticatedAppDashboardRoute: typeof AuthenticatedAppDashboardRoute
+  AuthenticatedAppHutangRoute: typeof AuthenticatedAppHutangRoute
+  AuthenticatedAppKasRoute: typeof AuthenticatedAppKasRoute
+  AuthenticatedAppKategoriRoute: typeof AuthenticatedAppKategoriRoute
+  AuthenticatedAppLaporanRoute: typeof AuthenticatedAppLaporanRoute
+  AuthenticatedAppOpnameRoute: typeof AuthenticatedAppOpnameRoute
+  AuthenticatedAppPelangganRoute: typeof AuthenticatedAppPelangganRoute
+  AuthenticatedAppPembelianRoute: typeof AuthenticatedAppPembelianRoute
+  AuthenticatedAppPengaturanRoute: typeof AuthenticatedAppPengaturanRoute
+  AuthenticatedAppPenjualanRoute: typeof AuthenticatedAppPenjualanRouteWithChildren
+  AuthenticatedAppPiutangRoute: typeof AuthenticatedAppPiutangRoute
+  AuthenticatedAppProdukRoute: typeof AuthenticatedAppProdukRoute
+  AuthenticatedAppStokRoute: typeof AuthenticatedAppStokRoute
+  AuthenticatedAppSupplierRoute: typeof AuthenticatedAppSupplierRoute
+  AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
+}
+
+const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
+  AuthenticatedAppAkunRoute: AuthenticatedAppAkunRoute,
+  AuthenticatedAppAuditRoute: AuthenticatedAppAuditRoute,
+  AuthenticatedAppBerandaRoute: AuthenticatedAppBerandaRoute,
+  AuthenticatedAppDashboardRoute: AuthenticatedAppDashboardRoute,
+  AuthenticatedAppHutangRoute: AuthenticatedAppHutangRoute,
+  AuthenticatedAppKasRoute: AuthenticatedAppKasRoute,
+  AuthenticatedAppKategoriRoute: AuthenticatedAppKategoriRoute,
+  AuthenticatedAppLaporanRoute: AuthenticatedAppLaporanRoute,
+  AuthenticatedAppOpnameRoute: AuthenticatedAppOpnameRoute,
+  AuthenticatedAppPelangganRoute: AuthenticatedAppPelangganRoute,
+  AuthenticatedAppPembelianRoute: AuthenticatedAppPembelianRoute,
+  AuthenticatedAppPengaturanRoute: AuthenticatedAppPengaturanRoute,
+  AuthenticatedAppPenjualanRoute: AuthenticatedAppPenjualanRouteWithChildren,
+  AuthenticatedAppPiutangRoute: AuthenticatedAppPiutangRoute,
+  AuthenticatedAppProdukRoute: AuthenticatedAppProdukRoute,
+  AuthenticatedAppStokRoute: AuthenticatedAppStokRoute,
+  AuthenticatedAppSupplierRoute: AuthenticatedAppSupplierRoute,
+  AuthenticatedAppIndexRoute: AuthenticatedAppIndexRoute,
+}
+
+const AuthenticatedAppRouteWithChildren =
+  AuthenticatedAppRoute._addFileChildren(AuthenticatedAppRouteChildren)
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAppRoute: typeof AuthenticatedAppRouteWithChildren
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAppRoute: AuthenticatedAppRouteWithChildren,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
