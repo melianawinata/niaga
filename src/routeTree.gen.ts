@@ -28,6 +28,7 @@ import { Route as AuthenticatedAppKasRouteImport } from './routes/_authenticated
 import { Route as AuthenticatedAppHutangRouteImport } from './routes/_authenticated/app.hutang'
 import { Route as AuthenticatedAppDashboardRouteImport } from './routes/_authenticated/app.dashboard'
 import { Route as AuthenticatedAppBerandaRouteImport } from './routes/_authenticated/app.beranda'
+import { Route as AuthenticatedAppAuditRouteImport } from './routes/_authenticated/app.audit'
 import { Route as AuthenticatedAppPenjualanBaruRouteImport } from './routes/_authenticated/app.penjualan.baru'
 
 const AuthRoute = AuthRouteImport.update({
@@ -130,6 +131,11 @@ const AuthenticatedAppBerandaRoute = AuthenticatedAppBerandaRouteImport.update({
   path: '/beranda',
   getParentRoute: () => AuthenticatedAppRoute,
 } as any)
+const AuthenticatedAppAuditRoute = AuthenticatedAppAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
 const AuthenticatedAppPenjualanBaruRoute =
   AuthenticatedAppPenjualanBaruRouteImport.update({
     id: '/baru',
@@ -141,6 +147,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/app': typeof AuthenticatedAppRouteWithChildren
+  '/app/audit': typeof AuthenticatedAppAuditRoute
   '/app/beranda': typeof AuthenticatedAppBerandaRoute
   '/app/dashboard': typeof AuthenticatedAppDashboardRoute
   '/app/hutang': typeof AuthenticatedAppHutangRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/app/audit': typeof AuthenticatedAppAuditRoute
   '/app/beranda': typeof AuthenticatedAppBerandaRoute
   '/app/dashboard': typeof AuthenticatedAppDashboardRoute
   '/app/hutang': typeof AuthenticatedAppHutangRoute
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
+  '/_authenticated/app/audit': typeof AuthenticatedAppAuditRoute
   '/_authenticated/app/beranda': typeof AuthenticatedAppBerandaRoute
   '/_authenticated/app/dashboard': typeof AuthenticatedAppDashboardRoute
   '/_authenticated/app/hutang': typeof AuthenticatedAppHutangRoute
@@ -207,6 +216,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/app'
+    | '/app/audit'
     | '/app/beranda'
     | '/app/dashboard'
     | '/app/hutang'
@@ -227,6 +237,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/app/audit'
     | '/app/beranda'
     | '/app/dashboard'
     | '/app/hutang'
@@ -249,6 +260,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/auth'
     | '/_authenticated/app'
+    | '/_authenticated/app/audit'
     | '/_authenticated/app/beranda'
     | '/_authenticated/app/dashboard'
     | '/_authenticated/app/hutang'
@@ -408,6 +420,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppBerandaRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/audit': {
+      id: '/_authenticated/app/audit'
+      path: '/audit'
+      fullPath: '/app/audit'
+      preLoaderRoute: typeof AuthenticatedAppAuditRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/penjualan/baru': {
       id: '/_authenticated/app/penjualan/baru'
       path: '/baru'
@@ -433,6 +452,7 @@ const AuthenticatedAppPenjualanRouteWithChildren =
   )
 
 interface AuthenticatedAppRouteChildren {
+  AuthenticatedAppAuditRoute: typeof AuthenticatedAppAuditRoute
   AuthenticatedAppBerandaRoute: typeof AuthenticatedAppBerandaRoute
   AuthenticatedAppDashboardRoute: typeof AuthenticatedAppDashboardRoute
   AuthenticatedAppHutangRoute: typeof AuthenticatedAppHutangRoute
@@ -451,6 +471,7 @@ interface AuthenticatedAppRouteChildren {
 }
 
 const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
+  AuthenticatedAppAuditRoute: AuthenticatedAppAuditRoute,
   AuthenticatedAppBerandaRoute: AuthenticatedAppBerandaRoute,
   AuthenticatedAppDashboardRoute: AuthenticatedAppDashboardRoute,
   AuthenticatedAppHutangRoute: AuthenticatedAppHutangRoute,
