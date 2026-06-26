@@ -17,6 +17,7 @@ import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedAppProdukRouteImport } from './routes/_authenticated/app.produk'
 import { Route as AuthenticatedAppDashboardRouteImport } from './routes/_authenticated/app.dashboard'
 import { Route as AuthenticatedAppBerandaRouteImport } from './routes/_authenticated/app.beranda'
+import { Route as AuthenticatedAppPenjualanBaruRouteImport } from './routes/_authenticated/app.penjualan.baru'
 
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
@@ -58,6 +59,12 @@ const AuthenticatedAppBerandaRoute = AuthenticatedAppBerandaRouteImport.update({
   path: '/beranda',
   getParentRoute: () => AuthenticatedAppRoute,
 } as any)
+const AuthenticatedAppPenjualanBaruRoute =
+  AuthenticatedAppPenjualanBaruRouteImport.update({
+    id: '/penjualan/baru',
+    path: '/penjualan/baru',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/app/dashboard': typeof AuthenticatedAppDashboardRoute
   '/app/produk': typeof AuthenticatedAppProdukRoute
   '/app/': typeof AuthenticatedAppIndexRoute
+  '/app/penjualan/baru': typeof AuthenticatedAppPenjualanBaruRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -75,6 +83,7 @@ export interface FileRoutesByTo {
   '/app/dashboard': typeof AuthenticatedAppDashboardRoute
   '/app/produk': typeof AuthenticatedAppProdukRoute
   '/app': typeof AuthenticatedAppIndexRoute
+  '/app/penjualan/baru': typeof AuthenticatedAppPenjualanBaruRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -86,6 +95,7 @@ export interface FileRoutesById {
   '/_authenticated/app/dashboard': typeof AuthenticatedAppDashboardRoute
   '/_authenticated/app/produk': typeof AuthenticatedAppProdukRoute
   '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
+  '/_authenticated/app/penjualan/baru': typeof AuthenticatedAppPenjualanBaruRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -97,8 +107,16 @@ export interface FileRouteTypes {
     | '/app/dashboard'
     | '/app/produk'
     | '/app/'
+    | '/app/penjualan/baru'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/app/beranda' | '/app/dashboard' | '/app/produk' | '/app'
+  to:
+    | '/'
+    | '/auth'
+    | '/app/beranda'
+    | '/app/dashboard'
+    | '/app/produk'
+    | '/app'
+    | '/app/penjualan/baru'
   id:
     | '__root__'
     | '/'
@@ -109,6 +127,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/dashboard'
     | '/_authenticated/app/produk'
     | '/_authenticated/app/'
+    | '/_authenticated/app/penjualan/baru'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -175,6 +194,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppBerandaRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/penjualan/baru': {
+      id: '/_authenticated/app/penjualan/baru'
+      path: '/penjualan/baru'
+      fullPath: '/app/penjualan/baru'
+      preLoaderRoute: typeof AuthenticatedAppPenjualanBaruRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
   }
 }
 
@@ -183,6 +209,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppDashboardRoute: typeof AuthenticatedAppDashboardRoute
   AuthenticatedAppProdukRoute: typeof AuthenticatedAppProdukRoute
   AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
+  AuthenticatedAppPenjualanBaruRoute: typeof AuthenticatedAppPenjualanBaruRoute
 }
 
 const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
@@ -190,6 +217,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppDashboardRoute: AuthenticatedAppDashboardRoute,
   AuthenticatedAppProdukRoute: AuthenticatedAppProdukRoute,
   AuthenticatedAppIndexRoute: AuthenticatedAppIndexRoute,
+  AuthenticatedAppPenjualanBaruRoute: AuthenticatedAppPenjualanBaruRoute,
 }
 
 const AuthenticatedAppRouteWithChildren =
