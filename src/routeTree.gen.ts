@@ -19,6 +19,7 @@ import { Route as AuthenticatedAppStokRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedAppProdukRouteImport } from './routes/_authenticated/app.produk'
 import { Route as AuthenticatedAppPiutangRouteImport } from './routes/_authenticated/app.piutang'
 import { Route as AuthenticatedAppPenjualanRouteImport } from './routes/_authenticated/app.penjualan'
+import { Route as AuthenticatedAppPembelianRouteImport } from './routes/_authenticated/app.pembelian'
 import { Route as AuthenticatedAppPelangganRouteImport } from './routes/_authenticated/app.pelanggan'
 import { Route as AuthenticatedAppOpnameRouteImport } from './routes/_authenticated/app.opname'
 import { Route as AuthenticatedAppKategoriRouteImport } from './routes/_authenticated/app.kategori'
@@ -77,6 +78,12 @@ const AuthenticatedAppPenjualanRoute =
     path: '/penjualan',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppPembelianRoute =
+  AuthenticatedAppPembelianRouteImport.update({
+    id: '/pembelian',
+    path: '/pembelian',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 const AuthenticatedAppPelangganRoute =
   AuthenticatedAppPelangganRouteImport.update({
     id: '/pelanggan',
@@ -121,6 +128,7 @@ export interface FileRoutesByFullPath {
   '/app/kategori': typeof AuthenticatedAppKategoriRoute
   '/app/opname': typeof AuthenticatedAppOpnameRoute
   '/app/pelanggan': typeof AuthenticatedAppPelangganRoute
+  '/app/pembelian': typeof AuthenticatedAppPembelianRoute
   '/app/penjualan': typeof AuthenticatedAppPenjualanRouteWithChildren
   '/app/piutang': typeof AuthenticatedAppPiutangRoute
   '/app/produk': typeof AuthenticatedAppProdukRoute
@@ -137,6 +145,7 @@ export interface FileRoutesByTo {
   '/app/kategori': typeof AuthenticatedAppKategoriRoute
   '/app/opname': typeof AuthenticatedAppOpnameRoute
   '/app/pelanggan': typeof AuthenticatedAppPelangganRoute
+  '/app/pembelian': typeof AuthenticatedAppPembelianRoute
   '/app/penjualan': typeof AuthenticatedAppPenjualanRouteWithChildren
   '/app/piutang': typeof AuthenticatedAppPiutangRoute
   '/app/produk': typeof AuthenticatedAppProdukRoute
@@ -156,6 +165,7 @@ export interface FileRoutesById {
   '/_authenticated/app/kategori': typeof AuthenticatedAppKategoriRoute
   '/_authenticated/app/opname': typeof AuthenticatedAppOpnameRoute
   '/_authenticated/app/pelanggan': typeof AuthenticatedAppPelangganRoute
+  '/_authenticated/app/pembelian': typeof AuthenticatedAppPembelianRoute
   '/_authenticated/app/penjualan': typeof AuthenticatedAppPenjualanRouteWithChildren
   '/_authenticated/app/piutang': typeof AuthenticatedAppPiutangRoute
   '/_authenticated/app/produk': typeof AuthenticatedAppProdukRoute
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/app/kategori'
     | '/app/opname'
     | '/app/pelanggan'
+    | '/app/pembelian'
     | '/app/penjualan'
     | '/app/piutang'
     | '/app/produk'
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/app/kategori'
     | '/app/opname'
     | '/app/pelanggan'
+    | '/app/pembelian'
     | '/app/penjualan'
     | '/app/piutang'
     | '/app/produk'
@@ -209,6 +221,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/kategori'
     | '/_authenticated/app/opname'
     | '/_authenticated/app/pelanggan'
+    | '/_authenticated/app/pembelian'
     | '/_authenticated/app/penjualan'
     | '/_authenticated/app/piutang'
     | '/_authenticated/app/produk'
@@ -296,6 +309,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppPenjualanRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/pembelian': {
+      id: '/_authenticated/app/pembelian'
+      path: '/pembelian'
+      fullPath: '/app/pembelian'
+      preLoaderRoute: typeof AuthenticatedAppPembelianRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/pelanggan': {
       id: '/_authenticated/app/pelanggan'
       path: '/pelanggan'
@@ -361,6 +381,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppKategoriRoute: typeof AuthenticatedAppKategoriRoute
   AuthenticatedAppOpnameRoute: typeof AuthenticatedAppOpnameRoute
   AuthenticatedAppPelangganRoute: typeof AuthenticatedAppPelangganRoute
+  AuthenticatedAppPembelianRoute: typeof AuthenticatedAppPembelianRoute
   AuthenticatedAppPenjualanRoute: typeof AuthenticatedAppPenjualanRouteWithChildren
   AuthenticatedAppPiutangRoute: typeof AuthenticatedAppPiutangRoute
   AuthenticatedAppProdukRoute: typeof AuthenticatedAppProdukRoute
@@ -375,6 +396,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppKategoriRoute: AuthenticatedAppKategoriRoute,
   AuthenticatedAppOpnameRoute: AuthenticatedAppOpnameRoute,
   AuthenticatedAppPelangganRoute: AuthenticatedAppPelangganRoute,
+  AuthenticatedAppPembelianRoute: AuthenticatedAppPembelianRoute,
   AuthenticatedAppPenjualanRoute: AuthenticatedAppPenjualanRouteWithChildren,
   AuthenticatedAppPiutangRoute: AuthenticatedAppPiutangRoute,
   AuthenticatedAppProdukRoute: AuthenticatedAppProdukRoute,
