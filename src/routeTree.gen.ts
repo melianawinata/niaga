@@ -15,6 +15,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
 import { Route as AuthenticatedAppSupplierRouteImport } from './routes/_authenticated/app.supplier'
+import { Route as AuthenticatedAppStokRouteImport } from './routes/_authenticated/app.stok'
 import { Route as AuthenticatedAppProdukRouteImport } from './routes/_authenticated/app.produk'
 import { Route as AuthenticatedAppPiutangRouteImport } from './routes/_authenticated/app.piutang'
 import { Route as AuthenticatedAppPenjualanRouteImport } from './routes/_authenticated/app.penjualan'
@@ -54,6 +55,11 @@ const AuthenticatedAppSupplierRoute =
     path: '/supplier',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppStokRoute = AuthenticatedAppStokRouteImport.update({
+  id: '/stok',
+  path: '/stok',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
 const AuthenticatedAppProdukRoute = AuthenticatedAppProdukRouteImport.update({
   id: '/produk',
   path: '/produk',
@@ -111,6 +117,7 @@ export interface FileRoutesByFullPath {
   '/app/penjualan': typeof AuthenticatedAppPenjualanRouteWithChildren
   '/app/piutang': typeof AuthenticatedAppPiutangRoute
   '/app/produk': typeof AuthenticatedAppProdukRoute
+  '/app/stok': typeof AuthenticatedAppStokRoute
   '/app/supplier': typeof AuthenticatedAppSupplierRoute
   '/app/': typeof AuthenticatedAppIndexRoute
   '/app/penjualan/baru': typeof AuthenticatedAppPenjualanBaruRoute
@@ -125,6 +132,7 @@ export interface FileRoutesByTo {
   '/app/penjualan': typeof AuthenticatedAppPenjualanRouteWithChildren
   '/app/piutang': typeof AuthenticatedAppPiutangRoute
   '/app/produk': typeof AuthenticatedAppProdukRoute
+  '/app/stok': typeof AuthenticatedAppStokRoute
   '/app/supplier': typeof AuthenticatedAppSupplierRoute
   '/app': typeof AuthenticatedAppIndexRoute
   '/app/penjualan/baru': typeof AuthenticatedAppPenjualanBaruRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   '/_authenticated/app/penjualan': typeof AuthenticatedAppPenjualanRouteWithChildren
   '/_authenticated/app/piutang': typeof AuthenticatedAppPiutangRoute
   '/_authenticated/app/produk': typeof AuthenticatedAppProdukRoute
+  '/_authenticated/app/stok': typeof AuthenticatedAppStokRoute
   '/_authenticated/app/supplier': typeof AuthenticatedAppSupplierRoute
   '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
   '/_authenticated/app/penjualan/baru': typeof AuthenticatedAppPenjualanBaruRoute
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '/app/penjualan'
     | '/app/piutang'
     | '/app/produk'
+    | '/app/stok'
     | '/app/supplier'
     | '/app/'
     | '/app/penjualan/baru'
@@ -173,6 +183,7 @@ export interface FileRouteTypes {
     | '/app/penjualan'
     | '/app/piutang'
     | '/app/produk'
+    | '/app/stok'
     | '/app/supplier'
     | '/app'
     | '/app/penjualan/baru'
@@ -189,6 +200,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/penjualan'
     | '/_authenticated/app/piutang'
     | '/_authenticated/app/produk'
+    | '/_authenticated/app/stok'
     | '/_authenticated/app/supplier'
     | '/_authenticated/app/'
     | '/_authenticated/app/penjualan/baru'
@@ -242,6 +254,13 @@ declare module '@tanstack/react-router' {
       path: '/supplier'
       fullPath: '/app/supplier'
       preLoaderRoute: typeof AuthenticatedAppSupplierRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/stok': {
+      id: '/_authenticated/app/stok'
+      path: '/stok'
+      fullPath: '/app/stok'
+      preLoaderRoute: typeof AuthenticatedAppStokRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
     '/_authenticated/app/produk': {
@@ -325,6 +344,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppPenjualanRoute: typeof AuthenticatedAppPenjualanRouteWithChildren
   AuthenticatedAppPiutangRoute: typeof AuthenticatedAppPiutangRoute
   AuthenticatedAppProdukRoute: typeof AuthenticatedAppProdukRoute
+  AuthenticatedAppStokRoute: typeof AuthenticatedAppStokRoute
   AuthenticatedAppSupplierRoute: typeof AuthenticatedAppSupplierRoute
   AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
 }
@@ -337,6 +357,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppPenjualanRoute: AuthenticatedAppPenjualanRouteWithChildren,
   AuthenticatedAppPiutangRoute: AuthenticatedAppPiutangRoute,
   AuthenticatedAppProdukRoute: AuthenticatedAppProdukRoute,
+  AuthenticatedAppStokRoute: AuthenticatedAppStokRoute,
   AuthenticatedAppSupplierRoute: AuthenticatedAppSupplierRoute,
   AuthenticatedAppIndexRoute: AuthenticatedAppIndexRoute,
 }
