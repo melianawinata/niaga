@@ -23,6 +23,7 @@ import { Route as AuthenticatedAppPembelianRouteImport } from './routes/_authent
 import { Route as AuthenticatedAppPelangganRouteImport } from './routes/_authenticated/app.pelanggan'
 import { Route as AuthenticatedAppOpnameRouteImport } from './routes/_authenticated/app.opname'
 import { Route as AuthenticatedAppKategoriRouteImport } from './routes/_authenticated/app.kategori'
+import { Route as AuthenticatedAppKasRouteImport } from './routes/_authenticated/app.kas'
 import { Route as AuthenticatedAppHutangRouteImport } from './routes/_authenticated/app.hutang'
 import { Route as AuthenticatedAppDashboardRouteImport } from './routes/_authenticated/app.dashboard'
 import { Route as AuthenticatedAppBerandaRouteImport } from './routes/_authenticated/app.beranda'
@@ -102,6 +103,11 @@ const AuthenticatedAppKategoriRoute =
     path: '/kategori',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppKasRoute = AuthenticatedAppKasRouteImport.update({
+  id: '/kas',
+  path: '/kas',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
 const AuthenticatedAppHutangRoute = AuthenticatedAppHutangRouteImport.update({
   id: '/hutang',
   path: '/hutang',
@@ -132,6 +138,7 @@ export interface FileRoutesByFullPath {
   '/app/beranda': typeof AuthenticatedAppBerandaRoute
   '/app/dashboard': typeof AuthenticatedAppDashboardRoute
   '/app/hutang': typeof AuthenticatedAppHutangRoute
+  '/app/kas': typeof AuthenticatedAppKasRoute
   '/app/kategori': typeof AuthenticatedAppKategoriRoute
   '/app/opname': typeof AuthenticatedAppOpnameRoute
   '/app/pelanggan': typeof AuthenticatedAppPelangganRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByTo {
   '/app/beranda': typeof AuthenticatedAppBerandaRoute
   '/app/dashboard': typeof AuthenticatedAppDashboardRoute
   '/app/hutang': typeof AuthenticatedAppHutangRoute
+  '/app/kas': typeof AuthenticatedAppKasRoute
   '/app/kategori': typeof AuthenticatedAppKategoriRoute
   '/app/opname': typeof AuthenticatedAppOpnameRoute
   '/app/pelanggan': typeof AuthenticatedAppPelangganRoute
@@ -171,6 +179,7 @@ export interface FileRoutesById {
   '/_authenticated/app/beranda': typeof AuthenticatedAppBerandaRoute
   '/_authenticated/app/dashboard': typeof AuthenticatedAppDashboardRoute
   '/_authenticated/app/hutang': typeof AuthenticatedAppHutangRoute
+  '/_authenticated/app/kas': typeof AuthenticatedAppKasRoute
   '/_authenticated/app/kategori': typeof AuthenticatedAppKategoriRoute
   '/_authenticated/app/opname': typeof AuthenticatedAppOpnameRoute
   '/_authenticated/app/pelanggan': typeof AuthenticatedAppPelangganRoute
@@ -192,6 +201,7 @@ export interface FileRouteTypes {
     | '/app/beranda'
     | '/app/dashboard'
     | '/app/hutang'
+    | '/app/kas'
     | '/app/kategori'
     | '/app/opname'
     | '/app/pelanggan'
@@ -210,6 +220,7 @@ export interface FileRouteTypes {
     | '/app/beranda'
     | '/app/dashboard'
     | '/app/hutang'
+    | '/app/kas'
     | '/app/kategori'
     | '/app/opname'
     | '/app/pelanggan'
@@ -230,6 +241,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app/beranda'
     | '/_authenticated/app/dashboard'
     | '/_authenticated/app/hutang'
+    | '/_authenticated/app/kas'
     | '/_authenticated/app/kategori'
     | '/_authenticated/app/opname'
     | '/_authenticated/app/pelanggan'
@@ -349,6 +361,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppKategoriRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/kas': {
+      id: '/_authenticated/app/kas'
+      path: '/kas'
+      fullPath: '/app/kas'
+      preLoaderRoute: typeof AuthenticatedAppKasRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/hutang': {
       id: '/_authenticated/app/hutang'
       path: '/hutang'
@@ -398,6 +417,7 @@ interface AuthenticatedAppRouteChildren {
   AuthenticatedAppBerandaRoute: typeof AuthenticatedAppBerandaRoute
   AuthenticatedAppDashboardRoute: typeof AuthenticatedAppDashboardRoute
   AuthenticatedAppHutangRoute: typeof AuthenticatedAppHutangRoute
+  AuthenticatedAppKasRoute: typeof AuthenticatedAppKasRoute
   AuthenticatedAppKategoriRoute: typeof AuthenticatedAppKategoriRoute
   AuthenticatedAppOpnameRoute: typeof AuthenticatedAppOpnameRoute
   AuthenticatedAppPelangganRoute: typeof AuthenticatedAppPelangganRoute
@@ -414,6 +434,7 @@ const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppBerandaRoute: AuthenticatedAppBerandaRoute,
   AuthenticatedAppDashboardRoute: AuthenticatedAppDashboardRoute,
   AuthenticatedAppHutangRoute: AuthenticatedAppHutangRoute,
+  AuthenticatedAppKasRoute: AuthenticatedAppKasRoute,
   AuthenticatedAppKategoriRoute: AuthenticatedAppKategoriRoute,
   AuthenticatedAppOpnameRoute: AuthenticatedAppOpnameRoute,
   AuthenticatedAppPelangganRoute: AuthenticatedAppPelangganRoute,
