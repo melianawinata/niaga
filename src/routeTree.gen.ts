@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
+import { Route as AuthenticatedAppProdukRouteImport } from './routes/_authenticated/app.produk'
 import { Route as AuthenticatedAppDashboardRouteImport } from './routes/_authenticated/app.dashboard'
 import { Route as AuthenticatedAppBerandaRouteImport } from './routes/_authenticated/app.beranda'
 
@@ -41,6 +42,11 @@ const AuthenticatedAppIndexRoute = AuthenticatedAppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AuthenticatedAppRoute,
 } as any)
+const AuthenticatedAppProdukRoute = AuthenticatedAppProdukRouteImport.update({
+  id: '/produk',
+  path: '/produk',
+  getParentRoute: () => AuthenticatedAppRoute,
+} as any)
 const AuthenticatedAppDashboardRoute =
   AuthenticatedAppDashboardRouteImport.update({
     id: '/dashboard',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/app': typeof AuthenticatedAppRouteWithChildren
   '/app/beranda': typeof AuthenticatedAppBerandaRoute
   '/app/dashboard': typeof AuthenticatedAppDashboardRoute
+  '/app/produk': typeof AuthenticatedAppProdukRoute
   '/app/': typeof AuthenticatedAppIndexRoute
 }
 export interface FileRoutesByTo {
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/app/beranda': typeof AuthenticatedAppBerandaRoute
   '/app/dashboard': typeof AuthenticatedAppDashboardRoute
+  '/app/produk': typeof AuthenticatedAppProdukRoute
   '/app': typeof AuthenticatedAppIndexRoute
 }
 export interface FileRoutesById {
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
   '/_authenticated/app/beranda': typeof AuthenticatedAppBerandaRoute
   '/_authenticated/app/dashboard': typeof AuthenticatedAppDashboardRoute
+  '/_authenticated/app/produk': typeof AuthenticatedAppProdukRoute
   '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
 }
 export interface FileRouteTypes {
@@ -86,9 +95,10 @@ export interface FileRouteTypes {
     | '/app'
     | '/app/beranda'
     | '/app/dashboard'
+    | '/app/produk'
     | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/app/beranda' | '/app/dashboard' | '/app'
+  to: '/' | '/auth' | '/app/beranda' | '/app/dashboard' | '/app/produk' | '/app'
   id:
     | '__root__'
     | '/'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/_authenticated/app'
     | '/_authenticated/app/beranda'
     | '/_authenticated/app/dashboard'
+    | '/_authenticated/app/produk'
     | '/_authenticated/app/'
   fileRoutesById: FileRoutesById
 }
@@ -143,6 +154,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppIndexRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/produk': {
+      id: '/_authenticated/app/produk'
+      path: '/produk'
+      fullPath: '/app/produk'
+      preLoaderRoute: typeof AuthenticatedAppProdukRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
     '/_authenticated/app/dashboard': {
       id: '/_authenticated/app/dashboard'
       path: '/dashboard'
@@ -163,12 +181,14 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedAppRouteChildren {
   AuthenticatedAppBerandaRoute: typeof AuthenticatedAppBerandaRoute
   AuthenticatedAppDashboardRoute: typeof AuthenticatedAppDashboardRoute
+  AuthenticatedAppProdukRoute: typeof AuthenticatedAppProdukRoute
   AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
 }
 
 const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppBerandaRoute: AuthenticatedAppBerandaRoute,
   AuthenticatedAppDashboardRoute: AuthenticatedAppDashboardRoute,
+  AuthenticatedAppProdukRoute: AuthenticatedAppProdukRoute,
   AuthenticatedAppIndexRoute: AuthenticatedAppIndexRoute,
 }
 
