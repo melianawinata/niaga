@@ -3,8 +3,8 @@ import { z } from "zod";
 
 // Demo seed: creates 2 users (admin "Bu Sri", kasir "Andi") in one tenant
 // with master data + sample sales. Idempotent — safe to call multiple times.
-const DEMO_ADMIN = { email: "bu.sri@demo.niaga", password: "demo1234", nama: "Bu Sri" };
-const DEMO_KASIR = { email: "andi@demo.niaga", password: "demo1234", nama: "Andi" };
+const DEMO_ADMIN = { email: "bu.sri@demo.niaga", password: "password", nama: "Bu Sri" };
+const DEMO_KASIR = { email: "andi@demo.niaga", password: "password", nama: "Andi" };
 
 export const seedDemo = createServerFn({ method: "POST" })
   .inputValidator((d) => z.object({}).parse(d ?? {}))
@@ -26,6 +26,10 @@ export const seedDemo = createServerFn({ method: "POST" })
       });
       if (error) throw new Error("Gagal buat admin: " + error.message);
       adminId = data.user!.id;
+    } else {
+      // Existing demo admin — sync password so a rotated demo password takes effect.
+      const { error } = await supabaseAdmin.auth.admin.updateUserById(adminId, { password: DEMO_ADMIN.password });
+      if (error) throw new Error("Gagal perbarui sandi admin: " + error.message);
     }
     const ADMIN_ID: string = adminId!;
 
@@ -40,12 +44,16 @@ export const seedDemo = createServerFn({ method: "POST" })
       });
       if (error) throw new Error("Gagal buat kasir: " + error.message);
       kasirId = data.user!.id;
+    } else {
+      // Existing demo kasir — sync password so a rotated demo password takes effect.
+      const { error } = await supabaseAdmin.auth.admin.updateUserById(kasirId, { password: DEMO_KASIR.password });
+      if (error) throw new Error("Gagal perbarui sandi kasir: " + error.message);
     }
 
     const { count: prodCount } = await supabaseAdmin
       .from("produk").select("id", { count: "exact", head: true }).eq("tenant_id", tenantId);
     if ((prodCount ?? 0) > 0) {
-      return { adminEmail: DEMO_ADMIN.email, kasirEmail: DEMO_KASIR.email, password: "demo1234", seeded: false };
+      return { adminEmail: DEMO_ADMIN.email, kasirEmail: DEMO_KASIR.email, password: "password", seeded: false };
     }
 
     // Kategori
@@ -97,7 +105,7 @@ export const seedDemo = createServerFn({ method: "POST" })
       .select("id, harga_jual, harga_beli, nama").eq("tenant_id", tenantId);
 
     if (!prodList?.length || !pelanggan?.length || !kasId) {
-      return { adminEmail: DEMO_ADMIN.email, kasirEmail: DEMO_KASIR.email, password: "demo1234", seeded: true };
+      return { adminEmail: DEMO_ADMIN.email, kasirEmail: DEMO_KASIR.email, password: "password", seeded: true };
     }
 
     const KAS_ID: string = kasId;
@@ -188,5 +196,5 @@ export const seedDemo = createServerFn({ method: "POST" })
     await kreditSale(10, 14, 2, [{ idx: 5, qty: 4 }, { idx: 7, qty: 3 }]);
     await kreditSale(3, 14, 3, [{ idx: 0, qty: 2 }, { idx: 9, qty: 5 }]);
 
-    return { adminEmail: DEMO_ADMIN.email, kasirEmail: DEMO_KASIR.email, password: "demo1234", seeded: true };
+    return { adminEmail: DEMO_ADMIN.email, kasirEmail: DEMO_KASIR.email, password: "password", seeded: true };
   });

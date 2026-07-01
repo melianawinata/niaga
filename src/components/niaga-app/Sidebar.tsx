@@ -69,7 +69,7 @@ export function Sidebar({ isAdmin, namaUsaha }: { isAdmin: boolean; namaUsaha: s
   return (
     <aside className="w-64 shrink-0 border-r border-[var(--line)] bg-[var(--navy-900)] text-white flex flex-col">
       <div className="px-5 py-5 border-b border-white/10">
-        <div className="text-[10px] uppercase tracking-[0.25em] font-mono opacity-60">Niaga ERP</div>
+        <div className="text-[10px] uppercase tracking-[0.25em] font-mono opacity-60">NiagaERP</div>
         <div className="mt-1 text-sm font-display font-semibold truncate">{namaUsaha || "—"}</div>
         <div className="mt-1 text-[10px] font-mono uppercase tracking-widest text-[var(--brand-accent)]">
           {isAdmin ? "Mode Admin" : "Mode Kasir"}

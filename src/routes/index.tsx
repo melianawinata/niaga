@@ -13,13 +13,13 @@ import { Menu } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Niaga — ERP Mini untuk UMKM Dagang" },
+      { title: "NiagaERP — ERP Mini untuk UMKM Dagang" },
       {
         name: "description",
         content:
-          "Niaga: ERP mini berbasis cloud untuk UMKM dagang Indonesia. Catat sekali, stok–kas–utang langsung beres. Pengganti Excel yang berantakan.",
+          "NiagaERP: ERP mini berbasis cloud untuk UMKM dagang Indonesia. Catat sekali, stok–kas–utang langsung beres. Pengganti Excel yang berantakan.",
       },
-      { property: "og:title", content: "Niaga — ERP Mini untuk UMKM Dagang" },
+      { property: "og:title", content: "NiagaERP — ERP Mini untuk UMKM Dagang" },
       {
         property: "og:description",
         content:
@@ -107,7 +107,7 @@ function Navbar() {
       <Container className="flex h-16 items-center justify-between">
         <a href="#top" className="flex items-center gap-2 font-display text-xl font-bold tracking-tight text-navy-900">
           <span className="grid h-7 w-7 place-items-center rounded-md bg-navy-900 font-mono text-sm text-white">N</span>
-          niaga
+          NiagaERP
         </a>
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((n) => (
@@ -178,7 +178,7 @@ function Hero() {
             </span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Niaga merapikan operasional tokomu — stok, pembelian, penjualan, hutang-piutang — dalam satu sistem
+            NiagaERP merapikan operasional tokomu — stok, pembelian, penjualan, hutang-piutang — dalam satu sistem
             yang saling nyambung. Pengganti Excel yang berantakan, tanpa kamu harus paham akuntansi.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -371,7 +371,7 @@ function Solution() {
           Satu input, semuanya update otomatis.
         </h2>
         <p className="mt-4 max-w-2xl text-ink-soft">
-          Niaga meniru logika pembukuan berpasangan — tapi kamu nggak perlu paham akuntansi. Cukup catat
+          NiagaERP meniru logika pembukuan berpasangan — tapi kamu nggak perlu paham akuntansi. Cukup catat
           transaksi, sisanya sinkron sendiri.
         </p>
 
@@ -404,7 +404,7 @@ function Solution() {
         </div>
 
         <p className="mt-8 max-w-2xl font-display text-xl text-navy-900">
-          Nggak ada lagi entri dobel di banyak sheet. <span className="bg-brand-accent/60 px-1">Catat sekali, sisanya Niaga yang urus.</span>
+          Nggak ada lagi entri dobel di banyak sheet. <span className="bg-brand-accent/60 px-1">Catat sekali, sisanya NiagaERP yang urus.</span>
         </p>
       </Container>
     </section>
@@ -426,7 +426,7 @@ function Benefits() {
   return (
     <section className="border-b border-line bg-off-white">
       <Container className="py-20 md:py-28">
-        <SectionLabel num="03" label="Kenapa Niaga" />
+        <SectionLabel num="03" label="Kenapa NiagaERP" />
         <h2 className="mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-navy-900 md:text-5xl">
           Yang kamu dapat, dalam angka.
         </h2>
@@ -731,7 +731,7 @@ function MockFrame({ children, caption }: { children: ReactNode; caption: string
         <span className="h-2.5 w-2.5 rounded-full bg-danger/60" />
         <span className="h-2.5 w-2.5 rounded-full bg-warning/60" />
         <span className="h-2.5 w-2.5 rounded-full bg-success/60" />
-        <span className="ml-3 font-mono text-[10px] uppercase tracking-widest text-ink-soft">niaga.app</span>
+        <span className="ml-3 font-mono text-[10px] uppercase tracking-widest text-ink-soft">niagaerp.app</span>
       </div>
       <div className="rounded-lg bg-off-white p-4">{children}</div>
       <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-ink-soft">{caption}</p>
@@ -743,7 +743,7 @@ function MockFrame({ children, caption }: { children: ReactNode; caption: string
 
 const FAQS = [
   ["Apakah ribet kalau saya selama ini cuma pakai Excel?", "Nggak. Import sekali klik, ada onboarding terpandu, dan baris error langsung ditandai biar kamu tinggal benerin."],
-  ["Saya nggak ngerti akuntansi, bisa pakai?", "Bisa banget. Niaga nyembunyiin istilah ribet — kamu cukup catat transaksi, sistem yang nyusun debit-kreditnya di belakang layar."],
+  ["Saya nggak ngerti akuntansi, bisa pakai?", "Bisa banget. NiagaERP nyembunyiin istilah ribet — kamu cukup catat transaksi, sistem yang nyusun debit-kreditnya di belakang layar."],
   ["Data saya aman?", "Backup otomatis, ada audit trail siapa ubah apa, dan bisa diekspor kapan saja. Datanya tetap punya kamu."],
   ["Bisa dipakai banyak orang (kasir, gudang, keuangan)?", "Bisa. Tiap user punya peran & izin sendiri — kasir nggak bisa lihat laporan laba, misalnya."],
   ["Internet saya suka putus, gimana?", "Mode offline/PWA sedang disiapkan. Operasi inti diprioritaskan tetap jalan walau koneksi naik-turun."],
@@ -819,7 +819,7 @@ function Footer() {
         <div>
           <div className="flex items-center gap-2 font-display text-lg font-bold text-white">
             <span className="grid h-7 w-7 place-items-center rounded-md bg-white text-sm font-mono text-navy-900">N</span>
-            niaga
+            NiagaERP
           </div>
           <p className="mt-3 text-sm">ERP mini untuk UMKM dagang Indonesia. Catat sekali, semua beres.</p>
         </div>
@@ -842,7 +842,7 @@ function Footer() {
       </Container>
       <div className="border-t border-white/10">
         <Container className="flex flex-col items-start justify-between gap-3 py-6 text-xs text-white/50 md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Niaga. Dibuat untuk pedagang Indonesia.</p>
+          <p>© {new Date().getFullYear()} NiagaERP. Dibuat untuk pedagang Indonesia.</p>
           <p className="font-mono uppercase tracking-widest">v0.1 · pilot</p>
         </Container>
       </div>

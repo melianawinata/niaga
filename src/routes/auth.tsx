@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/auth")({
-  head: () => ({ meta: [{ title: "Masuk — Niaga ERP" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Masuk — NiagaERP" }, { name: "robots", content: "noindex" }] }),
   component: AuthPage,
 });
 
@@ -59,10 +59,10 @@ function AuthPage() {
     }
   }
 
-  async function loginAs(em: string) {
+  async function loginAs(em: string, pw: string) {
     setLoading(true);
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email: em, password: "demo1234" });
+      const { error } = await supabase.auth.signInWithPassword({ email: em, password: pw });
       if (error) throw error;
       navigate({ to: "/app" });
     } catch (e: any) {
@@ -76,7 +76,7 @@ function AuthPage() {
     <div className="min-h-screen grid lg:grid-cols-2 bg-white">
       <div className="hidden lg:flex flex-col justify-between p-12 bg-[var(--navy-900)] text-white">
         <div>
-          <Link to="/" className="text-xs uppercase tracking-[0.2em] font-mono opacity-70">← Niaga</Link>
+          <Link to="/" className="text-xs uppercase tracking-[0.2em] font-mono opacity-70">← NiagaERP</Link>
           <h1 className="mt-10 font-display text-4xl leading-tight">ERP mini untuk UMKM dagang.</h1>
           <p className="mt-3 text-sm opacity-80 max-w-sm">Satu input, pembaruan otomatis: stok, kas, hutang-piutang.</p>
         </div>
@@ -121,11 +121,11 @@ function AuthPage() {
               <span>1. Siapkan Akun Demo</span>
               <span className="text-xs font-mono text-[var(--ink-soft)]">{seedMut.isPending ? "..." : "→"}</span>
             </Button>
-            <Button variant="outline" className="w-full justify-between" onClick={() => loginAs("bu.sri@demo.niaga")} disabled={loading}>
+            <Button variant="outline" className="w-full justify-between" onClick={() => loginAs("bu.sri@demo.niaga", "password")} disabled={loading}>
               <span>2a. Masuk sebagai <strong>Bu Sri</strong></span>
               <span className="text-xs font-mono text-[var(--ink-soft)]">PEMILIK</span>
             </Button>
-            <Button variant="outline" className="w-full justify-between" onClick={() => loginAs("andi@demo.niaga")} disabled={loading}>
+            <Button variant="outline" className="w-full justify-between" onClick={() => loginAs("andi@demo.niaga", "password")} disabled={loading}>
               <span>2b. Masuk sebagai <strong>Andi</strong></span>
               <span className="text-xs font-mono text-[var(--ink-soft)]">KASIR</span>
             </Button>
